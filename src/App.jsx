@@ -9,6 +9,7 @@ import User from "./pages/profile/User.jsx";
 
 
 function App() {
+
   return (
     <>
     {/* Anything outside of the switch will stay present
@@ -17,7 +18,11 @@ function App() {
       <Link to="/">Home</Link>
       <Link to="/about">About</Link>
       <Link to="/contact">Contact</Link>
-      <Link to="/profile">Profile</Link>
+
+      {/* This is also changed for route-matching
+      <Link to="/profile">Profile</Link> */}
+
+      <Link to="/account">Profile</Link>
       <Link to="/users">Users</Link>
     </header>
 
@@ -43,7 +48,12 @@ function App() {
         <Route path="/contact">
           <Contact />
         </Route>
-        <Route path="/profile">
+
+        {/* What happens if we want to change a route? profile -> account. import `useRouteMatch`
+          in the original route page(profile)
+        <Route path="/profile"> */}
+
+        <Route path="/account">
             <Profile/>
         </Route>
         <Route exact path="/users">

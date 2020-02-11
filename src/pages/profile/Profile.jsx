@@ -1,25 +1,29 @@
 import React from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import { Link, Switch, Route, useRouteMatch } from "react-router-dom";
 
 import Settings from "./Settings";
 import Info from "./Info";
 
 
 function Profile() {
+  const {path, url} = useRouteMatch()
+  // const match = useRouteMatch()
+  // console.log(match)
+  console.log({path, url})
   return(
     <div>
       <Switch>
         Profile page!
-        <Route exact path="/profile">
+        <Route exact path={`${path}`}>
           <ul>
-              <li><Link to="/profile/info">Profile Info</Link></li>
-              <li><Link to="/profile/settings">Profile Settings</Link></li>
+              <li><Link to={`${url}/info`}>Profile Info</Link></li>
+              <li><Link to={`${url}/settings`}>Profile Settings</Link></li>
           </ul>
         </Route>
-        <Route path="/profile/info">
+        <Route path={`${path}/info`}>
           <Info />
         </Route>
-        <Route path="/profile/settings">
+        <Route path={`${path}/settings`}>
           <Settings />
         </Route>
       </Switch>
